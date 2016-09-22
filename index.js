@@ -59,16 +59,16 @@ function insertHelpers (node, parent, chunks) {
         return chunks.slice(node.start, node.end).join('');
     };
     
-    if (node.update && typeof node.update === 'object') {
-        var prev = node.update;
-        forEach(objectKeys(prev), function (key) {
-            update[key] = prev[key];
-        });
-        node.update = update;
-    }
-    else {
-        node.update = update;
-    }
+    //if (node.update && typeof node.update === 'object') {
+        //var prev = node.update;
+        //forEach(objectKeys(prev), function (key) {
+            //update[key] = prev[key];
+        //});
+        //node.update = update;
+    //}
+    //else {
+        node.__update = update;
+    //}
     
     function update (s) {
         chunks[node.start] = s;
